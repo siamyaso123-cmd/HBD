@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>สุขสันต์วันเกิดนะ 💖</title>
-<link href="https://fonts.googleapis.com/css2?family=Itim&family=Pattaya&family=Mali:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Itim&family=Pattaya&family=Sriracha&family=Mali:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg1:#fff0f6;--bg2:#ffc9de;--ink:#7a1f4a;--card:#fff;--accent:#ff4f93;--soft:#ffd6e6;--shadow:rgba(255,79,147,.35);
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -34,15 +34,30 @@ h1,h2{font-family:'Pattaya','Itim',sans-serif;font-weight:400;margin:.2em 0;line
 .env b{transform-origin:top center}
 .opening .env{animation:none}
 .opening .env b{transform:rotateX(180deg)}
-.opening .env em{transform:translate(-50%,-95px) scale(1.5)}
+.opening .env em{opacity:0;transform:translate(-50%,-40px) scale(1.7);transition:transform .5s,opacity .4s}
+.env b{z-index:1;filter:brightness(.94)}
+.env .ltr{position:absolute;left:14px;right:14px;top:12px;height:140px;z-index:2;display:flex;align-items:center;justify-content:center;font-family:'Pattaya','Itim',sans-serif;font-size:1.25rem;color:#ff4f93;background:#fff repeating-linear-gradient(transparent 0 26px,#ffe3ee 26px 28px);border-radius:8px;box-shadow:0 3px 10px var(--shadow);opacity:0}
+.env .pk{position:absolute;left:0;right:0;bottom:0;top:58px;z-index:3;background:var(--card);border-radius:0 0 14px 14px;clip-path:polygon(0 0,50% 40%,100% 0,100% 100%,0 100%)}
+.env em{z-index:4}
+.opening .env .ltr{opacity:1;transform:translateY(-84px) scale(1.06);transition:opacity .25s .3s,transform .9s .5s cubic-bezier(.3,1.2,.4,1)}
+#intro h1,#intro .hint{transition:opacity .4s}
+.opening h1,.opening .hint{opacity:0}
+.smk{fill:#dccbe8;opacity:0;transform-box:fill-box;transform-origin:center;animation:smoke 1.7s ease-out forwards}
+@keyframes smoke{0%{opacity:.85;transform:translate(0,0) scale(.6)}100%{opacity:0;transform:translate(10px,-50px) scale(2.8)}}
+.bl{position:fixed;bottom:-140px;width:54px;height:66px;border-radius:50% 50% 48% 48%;z-index:8;pointer-events:none;box-shadow:inset -8px -8px 14px rgba(0,0,0,.08),inset 8px 8px 12px rgba(255,255,255,.45);animation:floatUp linear forwards}
+.bl::after{content:"";position:absolute;left:50%;top:100%;width:2px;height:60px;background:rgba(255,255,255,.75);transform:translateX(-50%)}
+@keyframes floatUp{50%{transform:translate(var(--dx),-70vh) rotate(var(--r))}to{transform:translate(calc(var(--dx)*-.6),-135vh) rotate(calc(var(--r)*-1))}}
+.petals{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.petals i{position:absolute;top:-30px;background:linear-gradient(135deg,#ffe3ee,#ff9fc2);border-radius:150% 0 150% 0;opacity:.85;animation:petal linear infinite}
+@keyframes petal{0%{transform:translate(0,0) rotate(0)}50%{transform:translate(var(--dx),56vh) rotate(260deg)}100%{transform:translate(calc(var(--dx)*-.4),112vh) rotate(540deg)}}
+.pen{display:inline-block;width:0;font-size:1.3rem;animation:wob .3s ease-in-out infinite alternate}
+@keyframes wob{from{transform:translate(2px,-8px) rotate(-6deg)}to{transform:translate(2px,-3px) rotate(6deg)}}
 .front{overflow:hidden}
 .front::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.45) 50%,transparent 65%);transform:translateX(-130%);animation:shine 3.4s 1.2s infinite;pointer-events:none}
 @keyframes shine{to{transform:translateX(130%)}}
 #card:not(.on):not(.seen) .inner{animation:wig 2.8s 1.8s infinite}
 @keyframes wig{0%,30%,100%{transform:rotateY(0)}8%{transform:rotateY(-16deg)}16%{transform:rotateY(14deg)}24%{transform:rotateY(-6deg)}}
-.row .flip{animation:cardIn .6s .5s both}
-.row .flip:nth-child(2){animation-delay:.65s}
-.row .flip:nth-child(3){animation-delay:.8s}
+.row .flip{will-change:transform}
 @keyframes cardIn{from{opacity:0;transform:translateY(30px) rotate(-6deg) scale(.9)}}
 .bnc{display:inline-block;animation:bnc .7s cubic-bezier(.3,1.6,.5,1) both}
 @keyframes bnc{from{opacity:0;transform:scale(.4) translateY(14px)}}
@@ -68,14 +83,46 @@ button{font:inherit;cursor:pointer}
 #intro{cursor:pointer}
 #intro h1{font-size:2.6rem}
 .env{margin-top:18px;width:230px;height:160px;border:0;background:none;position:relative;font-size:0;animation:bob 2s ease-in-out infinite}
-.env i{position:absolute;inset:0;background:var(--card);border-radius:14px;box-shadow:0 12px 30px var(--shadow)}
+.env i{position:absolute;inset:0;background:var(--soft);border-radius:14px;box-shadow:0 12px 30px var(--shadow)}
 .env b{position:absolute;left:0;right:0;top:0;height:90px;background:var(--soft);clip-path:polygon(0 0,100% 0,50% 100%);border-radius:14px 14px 0 0}
 .env em{position:absolute;left:50%;top:62px;transform:translateX(-50%);font-size:2.6rem;font-style:normal}
 @keyframes bob{50%{transform:translateY(-10px) rotate(-2deg)}}
 @keyframes pop{from{opacity:0;transform:scale(.92)}}
 .flip{perspective:1200px;width:min(86vw,330px);height:410px;margin:0 auto;cursor:pointer}
 .inner{position:relative;width:100%;height:100%;transition:transform .8s cubic-bezier(.4,.2,.2,1);transform-style:preserve-3d}
-.flip.on .inner{transform:rotateY(180deg)}
+.inner{transform:rotateX(var(--tx,0deg)) rotateY(var(--ty,0deg))}
+.flip.on .inner{transform:rotateX(var(--tx,0deg)) rotateY(calc(180deg + var(--ty,0deg)))}
+#card.live .inner{transition:transform .15s linear}
+#card.flipping .inner{transition:transform .8s cubic-bezier(.4,.2,.2,1)}
+#card.on.flipping .inner{transition-delay:.55s}
+#card .front>*{position:relative;z-index:1}
+#card .front::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.9;background:radial-gradient(circle at var(--gx,50%) var(--gy,22%),rgba(255,255,255,.55),transparent 46%),radial-gradient(circle,#fff 0 1.6px,transparent 2.6px) var(--px,0px) var(--py,0px)/34px 34px,radial-gradient(circle,#fff 0 1px,transparent 2px) calc(17px + var(--px,0px)*1.8) calc(17px + var(--py,0px)*1.8)/34px 34px}
+.rbn{position:absolute;left:0;right:0;top:34px;height:30px;z-index:3;pointer-events:none;transition:opacity .4s .5s}
+.rbn .band{position:absolute;inset:0;background:linear-gradient(#ffe88a,#ffcf40);box-shadow:0 3px 6px rgba(0,0,0,.2);transition:transform .7s cubic-bezier(.6,0,.9,.5)}
+.rbn .tail{position:absolute;top:40px;left:50%;width:15px;height:54px;background:linear-gradient(#ffe88a,#ffcf40);clip-path:polygon(0 0,100% 0,100% 100%,50% 82%,0 100%);transform-origin:50% 0;transition:transform .9s cubic-bezier(.5,0,.9,.5),opacity .9s}
+.rbn .tail.l{margin-left:-18px;transform:rotate(14deg)}
+.rbn .tail.r{margin-left:3px;transform:rotate(-14deg)}
+.rbn .bow{position:absolute;left:50%;top:6px;width:60px;margin-left:-30px;text-align:center;font-size:3.2rem;line-height:1;transition:transform .7s cubic-bezier(.6,0,.9,.5)}
+#card.on .rbn{opacity:0;transition:opacity .3s .8s}
+#card.on .rbn .band{transform:translateX(110%)}
+#card.on .rbn .tail.l{transform:translateY(190px) rotate(60deg);opacity:0}
+#card.on .rbn .tail.r{transform:translateY(190px) rotate(-60deg);opacity:0}
+#card.on .rbn .bow{transform:translateY(40px) rotate(120deg) scale(.1)}
+.lock{position:relative;width:76px;height:92px;margin:0 auto 6px}
+.lock .sh{position:absolute;left:16px;top:2px;width:44px;height:46px;border:9px solid #ffd04a;border-bottom:0;border-radius:30px 30px 0 0;transform-origin:100% 100%;transition:transform .5s cubic-bezier(.3,1.5,.5,1)}
+.lock .bd{position:absolute;left:0;right:0;bottom:0;height:54px;border-radius:14px;background:linear-gradient(145deg,#ff8fb8,#ff4f93);border:3px solid #fff;box-shadow:0 8px 18px var(--shadow)}
+.lock .bd::before{content:"";position:absolute;left:50%;top:12px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:#fff}
+.lock .bd::after{content:"";position:absolute;left:50%;top:22px;width:5px;height:13px;margin-left:-2.5px;border-radius:2px;background:#fff}
+.lock.open .sh{transform:translateY(-16px) rotate(-30deg)}
+.lock.open .bd{animation:jig .5s}
+.lock.shake{animation:shake .45s}
+@keyframes jig{30%{transform:rotate(-8deg) scale(1.08)}60%{transform:rotate(6deg)}}
+.sp{position:absolute;left:50%;top:50%;font-size:1.3rem;pointer-events:none;animation:sp .9s ease-out forwards}
+@keyframes sp{from{opacity:1;transform:translate(-50%,-50%) scale(.4)}to{opacity:0;transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) scale(1.4) rotate(140deg)}}
+.hx{position:fixed;width:40px;height:36px;z-index:50;pointer-events:none;opacity:0;transform:translate(-50%,-50%) scale(0)}
+.hx svg{width:100%;height:100%;display:block}
+.hx.grow{opacity:1;transform:translate(-50%,-50%) scale(110);transition:transform .5s cubic-bezier(.5,0,.9,.6)}
+.hx.out{opacity:0;transform:translate(-50%,-50%) scale(110);transition:opacity .45s}
 .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:26px;padding:26px 22px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 14px 34px var(--shadow)}
 .front{background:linear-gradient(145deg,#ff8fb8,#ff4f93);color:#fff;border:6px solid #fff3}
 .front .big{font-size:4.4rem;animation:bob 2.4s ease-in-out infinite}
@@ -93,7 +140,7 @@ button{font:inherit;cursor:pointer}
 @keyframes flick{to{transform:scale(1.15,.92) rotate(4deg)}}
 .btn{background:var(--accent);color:#fff;border:3px solid #fff;border-radius:99px;padding:12px 26px;box-shadow:0 8px 20px var(--shadow);font-weight:700}
 #wish{width:100%;font-size:1.15rem;margin-top:14px;font-weight:600}
-#wish .bnc{display:block;background:linear-gradient(145deg,#ff6aa5,#e8337a);color:#fff;font-size:1.55rem;line-height:1.7;padding:28px 22px;border-radius:28px;border:4px solid #fff;box-shadow:0 12px 30px var(--shadow);text-shadow:0 2px 0 rgba(0,0,0,.2)}
+#wish .bnc{font-family:'Sriracha','Mali',sans-serif;display:block;background:linear-gradient(145deg,#ff6aa5,#e8337a);color:#fff;font-size:1.55rem;line-height:1.7;padding:28px 22px;border-radius:28px;border:4px solid #fff;box-shadow:0 12px 30px var(--shadow);text-shadow:0 2px 0 rgba(0,0,0,.2)}
 .conf{position:fixed;top:-30px;z-index:9;pointer-events:none;animation:fall linear forwards}
 @keyframes fall{to{transform:translateY(110vh) rotate(540deg)}}
 .nav{position:fixed;left:50%;transform:translateX(-50%);width:min(496px,calc(100% - 24px));bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:5;display:none;justify-content:space-between;align-items:center;gap:10px;padding:8px 12px;background:var(--card);border:3px dashed var(--accent);border-radius:999px;box-shadow:0 8px 20px var(--shadow)}
@@ -107,8 +154,11 @@ button{font:inherit;cursor:pointer}
 </head>
 <body>
 <div class="hearts" id="hearts" aria-hidden="true"></div>
+<div class="petals" id="petals" aria-hidden="true"></div>
+<div class="hx" id="hx" aria-hidden="true"><svg viewBox="0 0 32 29"><path d="M16 28S1 18.5 1 9.2C1 4.6 4.5 1 9 1c3 0 5.7 1.7 7 4.4C17.3 2.7 20 1 23 1c4.5 0 8 3.6 8 8.2C31 18.5 16 28 16 28z" fill="#ff7bb0"/></svg></div>
 
 <section class="pg first active" id="gate">
+  <div class="lock" id="lock"><span class="sh"></span><span class="bd"></span></div>
   <h1>ก่อนเข้า ตอบคำถามนิดนึงนะ 🔐</h1>
   <p class="hint">กรอก วัน เดือน ปีเกิดของเธอ (ปี พ.ศ.)</p>
   <div class="dob" id="dob">
@@ -125,22 +175,23 @@ button{font:inherit;cursor:pointer}
 <section class="pg first" id="intro">
   <h1>มีของขวัญ<br>มาให้ <span class="n"></span> 🎁</h1>
   <p class="hint">แตะตรงไหนก็ได้เพื่อเปิดดูนะ</p>
-  <button class="env" id="open" aria-label="เปิดซองจดหมาย"><i></i><b></b><em>💌</em>เปิด</button>
+  <button class="env" id="open" aria-label="เปิดซองจดหมาย"><i></i><b></b><span class="ltr">ถึง&nbsp;<span class="n"></span>&nbsp;💗</span><span class="pk"></span><em>💌</em>เปิด</button>
 </section>
 
 <section class="pg">
     <h1>Happy Birthday! 🎂</h1>
-    <p class="hint">แตะการ์ดเพื่อพลิกอ่านข้อความ</p>
+    <p class="hint">แตะการ์ดเพื่อพลิก และลองเอียงมือถือดูนะ ✨</p>
     <div class="flip" id="card" tabindex="0" role="button" aria-label="พลิกการ์ด">
       <div class="inner">
-        <div class="face front"><div class="big">🎀</div><h2>สุขสันต์วันเกิด</h2><h2><span class="n"></span></h2><p>แตะเพื่อเปิดอ่าน 💗</p></div>
+        <div class="face front"><h2>สุขสันต์วันเกิด</h2><h2><span class="n"></span></h2><p>แตะเพื่อเปิดอ่าน 💗</p></div>
         <div class="face back"><h2>ถึง <span class="n"></span> 💖</h2><p id="msg"></p><p>รักนะ<br><b id="from"></b></p></div>
       </div>
+      <div class="rbn" aria-hidden="true"><span class="band"></span><span class="tail l"></span><span class="tail r"></span><span class="bow">🎀</span></div>
     </div>
   </section>
 
   <section class="pg">
-    <h2>3 เหตุผลที่รักเธอ 💕</h2>
+    
     <p class="hint">แตะแต่ละใบเพื่อพลิกดู</p>
     <div class="row" id="reasons"></div>
   </section>
@@ -172,8 +223,8 @@ button{font:inherit;cursor:pointer}
 <script>
 /* ✏️ แก้ข้อความตรงนี้ได้เลย */
 const NAME = 'เบบี๋';
-const FROM = 'จากคนที่รักเธอที่สุด';
-const MESSAGE = 'ขอบคุณที่อยู่ข้างกันมาตลอด ไม่ว่าวันดีหรือวันแย่ วันนี้เป็นวันของเธอ ขอให้มีแต่รอยยิ้ม สุขภาพแข็งแรง และสมหวังทุกเรื่องนะ จะอยู่ข้างๆ เธอไปทุกปีเลย';
+const FROM = 'จากคนที่หล่อที่สุด';
+const MESSAGE = 'ไม่ว่าวันดีหรือวันแย่ วันนี้เป็นวันของเธอ ขอให้มีแต่รอยยิ้ม สุขภาพแข็งแรง และสมหวังทุกเรื่องนะ จะอยู่ข้างๆ เธอไปทุกปีเลย';
 const REASONS = [
   ['😊','รอยยิ้มของเธอ','ทำให้ทุกวันของเราสดใสขึ้นเสมอ'],
   ['🤗','อ้อมกอดอุ่นๆ','เหนื่อยแค่ไหนก็หายเลย'],
@@ -204,7 +255,22 @@ const pages=[...document.querySelectorAll('.pg')];
 const dots=$('#dots');
 let cur=0;
 for(let i=2;i<pages.length;i++) dots.appendChild(document.createElement('span'));
+let trans=false, lx=innerWidth/2, ly=innerHeight*.8;
+addEventListener('pointerdown',e=>{lx=e.clientX;ly=e.clientY;},true);
 function go(i){
+  if(trans||i===cur)return;
+  trans=true;
+  const h=$('#hx');
+  h.className='hx'; void h.offsetWidth;
+  h.style.left=lx+'px'; h.style.top=ly+'px';
+  h.classList.add('grow');
+  setTimeout(()=>{
+    goNow(i);
+    h.classList.remove('grow'); h.classList.add('out');
+    setTimeout(()=>{h.className='hx';trans=false;},480);
+  },540);
+}
+function goNow(i){
   const prev=cur;
   cur=Math.max(0,Math.min(pages.length-1,i));
   pages.forEach((p,k)=>{p.classList.toggle('active',k===cur);p.classList.toggle('rev',cur<prev);});
@@ -212,12 +278,13 @@ function go(i){
   [...dots.children].forEach((d,k)=>d.classList.toggle('on',k===cur-2));
   $('#next').textContent=cur===pages.length-1?'ดูใหม่ 🔄':'ถัดไป 💗';
   window.scrollTo(0,0);
+  if(cur===3)dealCards();
 }
 let opening=false;
 $('#intro').onclick=()=>{
   if(opening)return; opening=true;
   $('#intro').classList.add('opening'); confetti(20);
-  setTimeout(()=>{go(2);$('#intro').classList.remove('opening');opening=false;},950);
+  setTimeout(()=>{go(2);$('#intro').classList.remove('opening');opening=false;},1600);
 };
 $('#next').onclick=()=>go(cur===pages.length-1?1:cur+1);
 $('#prev').onclick=()=>go(cur-1);
@@ -234,9 +301,9 @@ function checkDob(){
   const v=['#d','#m','#y'].map(s=>parseInt($(s).value,10));
   const box=$('#dob'), mk=$('#mark');
   box.classList.remove('bad'); mk.classList.remove('show'); void box.offsetWidth;
-  if(v.every((n,i)=>n===DOB[i])){ mk.textContent=''; confetti(20); go(1); return; }
-  box.classList.add('bad');
-  mk.innerHTML='❌<div class="err">ไม่ถูกต้อง ลองใหม่อีกครั้งนะ</div>';
+  if(v.every((n,i)=>n===DOB[i])){ mk.textContent=''; unlock(); return; }
+  box.classList.add('bad'); $('#lock').classList.remove('shake'); void $('#lock').offsetWidth; $('#lock').classList.add('shake');
+  mk.innerHTML='❌<div class="err">ไม่ถูกต้อง ลองใหม่นะ ไม่อาวว</div>';
   mk.classList.add('show');
 }
 $('#check').onclick=checkDob;
@@ -248,12 +315,13 @@ $('#check').onclick=checkDob;
   });
   el.addEventListener('keydown',e=>{if(e.key==='Enter')checkDob();});
 });
-go(0);
+goNow(0);
 
 /* การ์ดพลิก */
 const card=$('#card');
 let typed=false;
 const flipIt=()=>{
+  card.classList.remove('live'); card.classList.add('flipping'); setTimeout(()=>card.classList.remove('flipping'),1500);
   card.classList.toggle('on'); card.classList.add('seen');
   if(!typed&&card.classList.contains('on')){typed=true;setTimeout(typeMsg,450);}
 };
@@ -281,19 +349,22 @@ REASONS.forEach(([ico,t,d],i)=>{
 /* เค้ก */
 const flames=[...document.querySelectorAll('.flame')];
 flames.forEach(f=>f.onclick=()=>{
+  if(f.classList.contains('off'))return;
   f.classList.add('off');
+  smoke(f);
   if(flames.every(x=>x.classList.contains('off'))){
     const cake=$('.cake');
-    cake.style.transition='opacity .6s,transform .6s';
+    balloons();
+    cake.style.transition='opacity .6s .9s,transform .6s .9s';
     cake.style.opacity='0'; cake.style.transform='scale(.5) translateY(30px)';
     $('#ch').style.display='none';
     setTimeout(()=>{
       cake.style.display='none';
       $('#ct').textContent='คำอวยพรวันเกิด 💖';
-      $('#wish').innerHTML='<span class="bnc">'+WISH+'</span>';
+      $('#wish').innerHTML='<span class="bnc"></span>'; writeWish();
       $('#again').style.display='inline-block';
       confetti(60);
-    },650);
+    },1550);
   }
 });
 $('#again').onclick=()=>{
@@ -304,6 +375,119 @@ $('#again').onclick=()=>{
 };
 
 /* คอนเฟตติ */
+/* กลีบซากุระร่วง */
+const pt=$('#petals');
+for(let i=0;i<20;i++){
+  const p=document.createElement('i'), s=9+Math.random()*9;
+  p.style.cssText=`left:${Math.random()*100}%;width:${s}px;height:${s*.85}px;animation-duration:${9+Math.random()*8}s;animation-delay:${-Math.random()*16}s;--dx:${(Math.random()<.5?-1:1)*(40+Math.random()*90)}px`;
+  pt.appendChild(p);
+}
+
+/* ควันเทียน */
+function smoke(f){
+  const b=f.getBBox(), ns='http://www.w3.org/2000/svg';
+  for(let k=0;k<3;k++){
+    const c=document.createElementNS(ns,'circle');
+    c.setAttribute('cx',b.x+b.width/2); c.setAttribute('cy',b.y+b.height-4); c.setAttribute('r',4+k);
+    c.setAttribute('class','smk'); c.style.animationDelay=(k*.25)+'s';
+    f.parentNode.appendChild(c); setTimeout(()=>c.remove(),2400);
+  }
+}
+
+/* ลูกโป่งลอยขึ้น */
+function balloons(){
+  const cols=['#ff6aa5','#ffd45e','#c7a6ff','#8fe3b5','#8fd3ff','#ff9fc2'];
+  for(let i=0;i<14;i++){
+    const b=document.createElement('div'); b.className='bl';
+    b.style.cssText=`left:${4+Math.random()*88}vw;background:${cols[i%cols.length]};animation-duration:${6+Math.random()*3}s;animation-delay:${Math.random()*1.2}s;--dx:${(Math.random()-.5)*80}px;--r:${(Math.random()-.5)*20}deg`;
+    document.body.appendChild(b); setTimeout(()=>b.remove(),11000);
+  }
+}
+
+/* คำอวยพรเขียนขึ้นมาเหมือนลายมือ */
+function writeWish(){
+  const el=$('#wish .bnc');
+  const seg=(window.Intl&&Intl.Segmenter)?[...new Intl.Segmenter('th',{granularity:'grapheme'}).segment(WISH)].map(s=>s.segment):Array.from(WISH);
+  let i=0;
+  el.innerHTML='<span style="opacity:0">'+WISH+'</span>';
+  setTimeout(()=>{
+    const t=setInterval(()=>{
+      i++;
+      el.innerHTML='<span>'+seg.slice(0,i).join('')+'</span>'+(i<seg.length?'<span class="pen">✏️</span>':'')+'<span style="opacity:0">'+seg.slice(i).join('')+'</span>';
+      if(i>=seg.length)clearInterval(t);
+    },85);
+  },700);
+}
+
+/* แม่กุญแจปลดล็อก */
+let unlocking=false;
+function unlock(){
+  if(unlocking)return; unlocking=true;
+  const lk=$('#lock'); lk.classList.add('open');
+  for(let i=0;i<12;i++){
+    const s=document.createElement('span'); s.className='sp'; s.textContent=['✨','💖','⭐'][i%3];
+    const a=i/12*Math.PI*2, r=60+Math.random()*30;
+    s.style.cssText=`--x:${Math.cos(a)*r}px;--y:${Math.sin(a)*r}px`;
+    lk.appendChild(s); setTimeout(()=>s.remove(),1000);
+  }
+  setTimeout(()=>{unlocking=false;go(1);},1300);
+}
+
+/* การ์ดเอียง + ประกายแสง */
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+function setTilt(nx,ny){
+  const s=(k,v)=>card.style.setProperty(k,v);
+  s('--ty',(nx*14)+'deg'); s('--tx',(-ny*14)+'deg');
+  s('--gx',(50+nx*42)+'%'); s('--gy',(30+ny*42)+'%');
+  s('--px',(nx*20)+'px'); s('--py',(ny*20)+'px');
+}
+card.addEventListener('pointermove',e=>{
+  if(card.classList.contains('flipping'))return;
+  const r=card.getBoundingClientRect();
+  card.classList.add('live','seen');
+  setTilt(clamp(((e.clientX-r.left)/r.width-.5)*2,-1,1),clamp(((e.clientY-r.top)/r.height-.5)*2,-1,1));
+});
+['pointerleave','pointerup','pointercancel'].forEach(ev=>card.addEventListener(ev,()=>{
+  if(card.classList.contains('flipping'))return;
+  card.classList.remove('live'); setTilt(0,0);
+}));
+let oriOn=false;
+function startOri(){
+  if(oriOn)return; oriOn=true;
+  window.addEventListener('deviceorientation',e=>{
+    if(cur!==2||e.gamma==null||card.classList.contains('flipping'))return;
+    card.classList.add('live','seen');
+    setTilt(clamp(e.gamma/25,-1,1),clamp(((e.beta||45)-45)/25,-1,1));
+  });
+}
+card.addEventListener('pointerdown',()=>{
+  if(typeof DeviceOrientationEvent!=='undefined'&&typeof DeviceOrientationEvent.requestPermission==='function'){
+    DeviceOrientationEvent.requestPermission().then(r=>{if(r==='granted')startOri();}).catch(()=>{});
+  }else startOri();
+},{once:true});
+
+/* แจกไพ่ */
+function dealCards(){
+  const row=$('#reasons'), cs=[...row.children];
+  const cx=row.offsetLeft+row.offsetWidth/2, cy=row.offsetTop+row.offsetHeight/2;
+  const rots=[-9,6,-3];
+  cs.forEach((el,i)=>{
+    const dx=cx-(el.offsetLeft+el.offsetWidth/2), dy=cy-(el.offsetTop+el.offsetHeight/2);
+    const S=(x,y,r)=>`translate(${dx+x}px,${dy+y}px) rotate(${r}deg)`;
+    const base=rots[i%3], d0=1000+i*380, T=d0+700, f=ms=>ms/T;
+    el.style.zIndex=3-i;
+    const a=el.animate([
+      {transform:S(0,0,base),offset:0},
+      {transform:S(16,-4,base+7),offset:f(220)},
+      {transform:S(-16,4,base-7),offset:f(440)},
+      {transform:S(12,-2,base+5),offset:f(660)},
+      {transform:S(0,0,base),offset:f(d0),easing:'cubic-bezier(.2,.9,.3,1.15)'},
+      {transform:'none',offset:1}
+    ],{duration:T,delay:450,fill:'backwards'});
+    a.onfinish=()=>{el.style.zIndex='';};
+  });
+}
+
 function confetti(n){
   const em=['🎉','💖','✨','🎀','🌸','💗'];
   for(let i=0;i<n;i++){
